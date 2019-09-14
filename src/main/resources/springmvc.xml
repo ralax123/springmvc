@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:component-scan base-package="controller"></context:component-scan>
+    <context:component-scan base-package="controller,exceprion"></context:component-scan>
     <mvc:annotation-driven></mvc:annotation-driven>
 
 
@@ -22,5 +22,21 @@
         <!-- 配置后缀：找以.jsp为后缀的视图 -->
         <property name="suffix" value=".jsp"></property>
     </bean>
+
+<!--    自定义拦截规则-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/show"/>
+            <bean class="interceptor.MyInterceptor1"></bean>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/show"/>
+            <bean class="interceptor.MyInterceptor2"></bean>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/show"/>
+            <bean class="interceptor.MyInterceptor3"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>
