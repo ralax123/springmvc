@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
+//添加注释
 public class HelloController {
 
     @RequestMapping("show")
